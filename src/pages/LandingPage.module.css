@@ -5,8 +5,10 @@
   margin: auto;
   margin-top: -8rem;
   position: relative;
-  background-color: #9FB1BCFF;
-  color: #F4FFFDFF;
+  background-color: rgb(233, 230, 225);
+  /* #9FB1BCFF */
+  /* #F4FFFDFF */
+  color: rgb(31, 31, 31);
   border-radius: 14px;
   padding: 1rem;
   box-shadow: 0 1px 18px 10px rgba(0, 0, 0, 0.25);

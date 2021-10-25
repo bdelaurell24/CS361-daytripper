@@ -5,8 +5,21 @@ import LoadingSpinner from './components/LoadingSpinner/LoadingSpinner';
 import LandingPage from './pages/LandingPage';
 import ResultsPage from './pages/ResultsPage';
 
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: '#6E8898FF',
+    }, secondary: {
+      main: '#9FB1BCFF',
+    },
+  },
+});
+
 function App() {
   return (
+    <ThemeProvider theme={theme}>
     <Suspense fallback={<div className='centered'>
         <LoadingSpinner />
       </div>}>
@@ -19,6 +32,7 @@ function App() {
       </Route>
     </Switch>
     </Suspense>
+    </ThemeProvider>
   );
 }
 

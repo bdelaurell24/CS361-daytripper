@@ -36,7 +36,7 @@ const LandingPage = () => {
             Tell us the city, state and date of your next day trip. We'll find
             the attractions, restraunts and events to make it memorable.
           </p>
-          <Grid container spacing = {2}>
+          <Grid container spacing={2} alignItems={'center'}>
             <Grid item xs={3}>
               <LocalizationProvider dateAdapter={AdapterDateFns}>
                 <DatePicker
@@ -74,9 +74,9 @@ const LandingPage = () => {
                 </Select>
               </FormControl>
             </Grid>
-            <Grid item xs={3}>
-              <Link style={{textDecoration: 'none'}} to={`/results/${date? date.replace('/', '-').replace('/', '-'): ''}/${city}/${state}`}>
-                <Button variant="text" size="large" style={{color: 'black'}}>Plan Trip</Button>
+            <Grid item xs={3} className={classes.searchBtn}>
+              <Link style={{textDecoration: 'none'}} to={`/results/${date? date.replace('/', '-').replace('/', '-'): ''}/${city.replace(' ', '+')}/${state}`}>
+                <Button variant="outlined" size="large" style={{color: 'black'}}>Plan Trip</Button>
               </Link>
             </Grid>
           </Grid>
