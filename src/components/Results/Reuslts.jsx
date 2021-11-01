@@ -2,10 +2,10 @@ import { Fragment, useState } from 'react';
 
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
-import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 
 import ResultList from '../ResultList/ResultList';
+import RestarauntResults from '../ResultList/RestarauntResults';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -20,7 +20,7 @@ function TabPanel(props) {
     >
       {value === index && (
         <Box sx={{ p: 3 }}>
-          <Typography>{children}</Typography>
+          {children}
         </Box>
       )}
     </div>
@@ -29,6 +29,9 @@ function TabPanel(props) {
 
 const Results = ({
   date,
+  sitesData,
+  museumData,
+  restarauntData,
 }) => {
   const [value, setValue] = useState(0);
 
@@ -40,20 +43,17 @@ const Results = ({
     <Fragment>
       <Tabs value={value} onChange={handleChange} centered >
         <Tab label="Restaurants" />
-        <Tab label="Attractions" />
-        <Tab label="Local Events" />
+        <Tab label="Site Attractions" />
+        <Tab label="Arts and Entertainment" />
       </Tabs>
       <TabPanel value={value} index={0}>
-        Restaurants
-        <ResultList />
+        <RestarauntResults tabTitle="Restaurants" data={restarauntData} />
       </TabPanel>
       <TabPanel value={value} index={1}>
-        Attractions
-        <ResultList />
+        <ResultList tabTitle="Site Attractions" data={sitesData} />
       </TabPanel>
       <TabPanel value={value} index={2}>
-        Local Events on {date}
-        <ResultList />
+        <ResultList tabTitle="Arts and Entertainment" data={museumData} />
       </TabPanel>
     </Fragment>
   );

@@ -41,6 +41,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "proxy": "http://flip1.engr.oregonstate.edu:5676/"
+  }
 }
