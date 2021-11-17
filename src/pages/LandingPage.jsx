@@ -3,17 +3,21 @@ import { Link } from 'react-router-dom';
 
 import Header from '../components/Header/Header';
 
-import { Grid, TextField, FormControl, InputLabel, Select, MenuItem, Button } from '@mui/material';
-import AdapterDateFns from '@mui/lab/AdapterDateFns';
-import LocalizationProvider from '@mui/lab/LocalizationProvider';
-import DatePicker from '@mui/lab/DatePicker';
+import { 
+  Grid, 
+  TextField, 
+  FormControl, 
+  InputLabel, 
+  Select, 
+  MenuItem, 
+  Button 
+} from '@mui/material';
 
 import states from './states';
 
 import classes from './LandingPage.module.css';
 
 const LandingPage = () => {
-  const [date, setDate] = useState(null);
   const [city, setCity] = useState('');
   const [state, setState] = useState('');
 
@@ -34,23 +38,10 @@ const LandingPage = () => {
           <h2>Plan your next adventure!</h2>
           <p>
             Tell us the city, state and date of your next day trip. We'll find
-            the attractions, restraunts and events to make it memorable.
+            the attractions, restraunts and arts/entertainment to make it memorable.
           </p>
           <Grid container spacing={2} alignItems={'center'}>
-            <Grid item xs={3}>
-              <LocalizationProvider dateAdapter={AdapterDateFns}>
-                <DatePicker
-                  label="Date"
-                  value={date}
-                  onChange={(newValue) => {
-                    const dateObject = new Date(newValue);
-                    setDate(dateObject.toLocaleDateString('en-US'));
-                  }}
-                  renderInput={(params) => <TextField {...params} />}
-                />
-              </LocalizationProvider>
-            </Grid>
-            <Grid item xs={3}>
+            <Grid item xs={4}>
               <TextField
                 required
                 label="City"
@@ -60,7 +51,7 @@ const LandingPage = () => {
                 fullWidth
               />
             </Grid>
-            <Grid item xs={3}>
+            <Grid item xs={4}>
               <FormControl fullWidth >
                 <InputLabel id="state-label">State</InputLabel>
                 <Select
@@ -74,8 +65,8 @@ const LandingPage = () => {
                 </Select>
               </FormControl>
             </Grid>
-            <Grid item xs={3} className={classes.searchBtn}>
-              <Link style={{textDecoration: 'none'}} to={`/results/${date? date.replace('/', '-').replace('/', '-'): ''}/${city.replace(' ', '+')}/${state}`}>
+            <Grid item xs={4} className={classes.searchBtn}>
+              <Link style={{textDecoration: 'none'}} to={`/results/${city.replace(' ', '+')}/${state}`}>
                 <Button variant="outlined" size="large" style={{color: 'black'}}>Plan Trip</Button>
               </Link>
             </Grid>

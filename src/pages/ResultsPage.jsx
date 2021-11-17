@@ -32,7 +32,7 @@ const ResultsPage = () => {
 
   const params = useParams();
 
-  const { date, city, state } = params;
+  const { city, state } = params;
 
   const { REACT_APP_OPEN_TRIP_API_KEY } = process.env;
 
@@ -154,7 +154,7 @@ const ResultsPage = () => {
             </Grid>
             <Grid item xs={12} style={{width: '95%'}}>
               <Item style={{width: '100%'}}>
-                <Results date={date} sitesData={localSites} museumData={localMuseums} restarauntData={restaraunts} />
+                <Results sitesData={localSites} museumData={localMuseums} restarauntData={restaraunts} />
               </Item>
             </Grid>
           </Grid>

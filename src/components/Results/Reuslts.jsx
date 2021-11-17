@@ -28,7 +28,6 @@ function TabPanel(props) {
 }
 
 const Results = ({
-  date,
   sitesData,
   museumData,
   restarauntData,

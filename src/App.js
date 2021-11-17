@@ -27,7 +27,7 @@ function App() {
       <Route path='/' exact>
         <LandingPage />
       </Route>
-      <Route path='/results/:date/:city/:state'>
+      <Route path='/results/:city/:state'>
         <ResultsPage />
       </Route>
     </Switch>
