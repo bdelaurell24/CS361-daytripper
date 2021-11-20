@@ -14,10 +14,9 @@ const RestarauntResults = ({ data, tabTitle }) => {
         {data && (data.map((restaraunt, index) => (<>
           <ListItem key={index} >
             <ListItemText
-              key={index}
               primary={restaraunt.name}
               secondary={
-                <Fragment key={index +50}>
+                <Fragment>
                 {`Price: ${restaraunt.price}`}
                 <br />
                 {`Address: ${restaraunt.street}, ${restaraunt.city}, ${restaraunt.state}`}
@@ -25,9 +24,12 @@ const RestarauntResults = ({ data, tabTitle }) => {
               }
             />
           </ListItem>
-          <Divider key={index + 100} component="li" />
+          <Divider component="li" />
           </>)
         ))}
+        {!data && (
+          <Typography variant="overline">Sorry, we found no results!</Typography>
+        )}
       </List>
     </Fragment>
     );

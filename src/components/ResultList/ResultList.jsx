@@ -13,8 +13,8 @@ const ResultList = (props) => {
   <Fragment>
     <Typography>{tabTitle}</Typography>
     <List>
-      {data && (data.features.map(listObj => (<>
-        <ListItem>
+      {data && (data.features.map((listObj, index) => (<>
+        <ListItem key={index}>
           <ListItemText
             primary={listObj.properties.name}
             secondary={`Tags: ${listObj.properties.kinds}`}
@@ -23,6 +23,9 @@ const ResultList = (props) => {
         <Divider component="li" />
         </>)
       ))}
+      {data.features.length === 0 && (
+        <Typography variant="overline">Sorry, we found no results!</Typography>
+      )}
     </List>
   </Fragment>
   );

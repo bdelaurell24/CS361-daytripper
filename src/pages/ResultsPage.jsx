@@ -41,8 +41,6 @@ const ResultsPage = () => {
       const res = await fetch(`http://flip1.engr.oregonstate.edu:5679/map?city=${city}&state=${state}&width=400&height=300`);
       
       const htmlString = await res.text();
-
-      console.log(htmlString);
   
       setMap(htmlString)
     };
@@ -55,8 +53,6 @@ const ResultsPage = () => {
       const res = await fetch('http://flip1.engr.oregonstate.edu:1439/get-playlist?theme=roadtrip');
       
       const resText = await res.text();
-
-      console.log(resText);
 
       setPlaylistURL(resText);
     };
@@ -100,8 +96,6 @@ const ResultsPage = () => {
       let data = await res.text();
       let dataObj = JSON.parse(data);
 
-      console.log(dataObj);
-
       setRestaraunts(dataObj);
     };
 
@@ -125,7 +119,7 @@ const ResultsPage = () => {
           <Grid container spacing={2} style={{marginLeft: '1rem', marginBottom: '1rem'}} >
             <Grid item xs={6}>
               <Item>
-                <h3>Map of {city}, {state}</h3>
+                <h3>Map of {city.replaceAll('+', ' ')}, {state}</h3>
                 <div dangerouslySetInnerHTML={createMarkup()}></div>
               </Item>
             </Grid>
@@ -152,7 +146,7 @@ const ResultsPage = () => {
                 )}
               </Item>
             </Grid>
-            <Grid item xs={12} style={{width: '95%'}}>
+            <Grid item xs={12} style={{ width: '85%'}}>
               <Item style={{width: '100%'}}>
                 <Results sitesData={localSites} museumData={localMuseums} restarauntData={restaraunts} />
               </Item>
